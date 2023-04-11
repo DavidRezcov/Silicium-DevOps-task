@@ -1,0 +1,18 @@
+В requirements.txt указаны версии зависимостей, совместимые с python3.6: 
+	Flask==1.1.4
+	WTForms==2.2.1
+	SQLAlchemy==1.2.15
+	bcrypt==3.1.5
+	requests==2.21.0
+	flask-heroku==0.1.9
+	gunicorn==19.9.0
+
+В tabledef.py заменена строка
+# Local
+SQLALCHEMY_DATABASE_URI = 'sqlite:///accounts.db'
+
+на:
+
+# Local
+basedir = os.path.abspath(os.path.dirname(__file__))
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'accounts.db')
